@@ -33,7 +33,7 @@ def text_to_ai(user_input,system_input,big_fucking_data):
   return response
 
 
-user_settings1=input("choose way of interacting:\n 1: audio mode\n 2: text mode\n 3:twitch mode\n")
+user_settings1=input("choose way of interacting:\n 1: audio mode\n 2: text mode\n 3: twitch mode\n")
 
 if int(user_settings1)==1:
    user_input = text_from_voice()
