@@ -17,7 +17,9 @@ def text_from_voice():
         print("Exeption: "+ str(e))
   return audio_user_input
 
-
+def twitch_chat():
+    chat_input = ""
+    return chat_input
 
    
 def text_to_ai(user_input,system_input,big_fucking_data):
@@ -31,12 +33,14 @@ def text_to_ai(user_input,system_input,big_fucking_data):
   return response
 
 
-user_settings1=input("choose way of interacting:\n 1: audio mode\n 2: text mode\n")
+user_settings1=input("choose way of interacting:\n 1: audio mode\n 2: text mode\n 3:twitch mode\n")
 
 if int(user_settings1)==1:
    user_input = text_from_voice()
 elif int(user_settings1)==2:
    user_input = input("Input qestion\n")
+elif int(user_settings1)==3:
+   user_input = twitch_chat()
 else:
   print("cringer")
 
