@@ -1,7 +1,7 @@
 import openai
 import speech_recognition as sr
 
-openai.api_key = "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"
+openai.api_key = "ypur api key"
 user_input=""
 user_settings_role=""
 
