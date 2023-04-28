@@ -16,9 +16,6 @@ def text_from_voice():
     except Exception as e:
         print("Exeption: "+ str(e))
   return audio_user_input
-
-
-
    
 def text_to_ai(user_input,system_input,big_fucking_data):
   response = openai.ChatCompletion.create(
@@ -30,7 +27,6 @@ def text_to_ai(user_input,system_input,big_fucking_data):
   )
   return response
 
-
 user_settings1=input("choose way of interacting:\n 1: audio mode\n 2: text mode\n")
 
 if int(user_settings1)==1:
@@ -39,7 +35,6 @@ elif int(user_settings1)==2:
    user_input = input("Input qestion\n")
 else:
   print("cringer")
-
 
 user_settings_role=input("\nPrint the role of A.I\n")
 calibration_data=input("\ninput some calibration data, so A.I. can answer properly\n")
