@@ -49,6 +49,10 @@ user_settings_role=input("\nPrint the role of A.I\n")
 calibration_data=input("\ninput some calibration data, so A.I. can answer properly\n")
 
 while True:
+    if int(user_settings1)==1:
+        print("\n\n\n\n\n\n*****Listening your voice*****\n\n\n\n\n\n")
+    else:
+        print("voice unavaileble")
     print(text_to_ai(user_input,user_settings_role,calibration_data))
     if int(user_settings1)==1:
        user_input = text_from_voice()
