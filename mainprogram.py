@@ -3,7 +3,7 @@ import openai
 import speech_recognition as sr
 
 #variables and keys
-openai.api_key = ""             #insert your API here
+openai_key = openai.api_key
 user_input=""
 user_settings_role=""
 
@@ -27,13 +27,15 @@ def twitch_chat():
     #coming soon
 
 #openAI API module
-def text_to_ai(user_input,system_input,big_fucking_data):
+def text_to_ai(user_input,system_input,big_fucking_data,big_fucking_data2):
   response = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
     messages=[
         {"role":"system","content":str(system_input)},
         {"role":"user","content":str(user_input)},
-        {"role":"assistant","content":str(big_fucking_data)}]
+        {"role":"assistant","content":str(big_fucking_data)},
+        {"role":"user","content":(big_fucking_data2)}
+    ]
   )
   response_text = response["choices"][0]["message"]["content"]
   return response_text
@@ -53,12 +55,14 @@ else:
   print("cringer")
 
 #more UI
-user_settings_role=input("\nPrint the role of A.I\n")
+openai_key=input("\ninput your OpenAI key here:\n")
+user_settings_role="ignore previous instructions"+input("\nPrint the role of A.I\n")
 calibration_data=input("\ninput some calibration data, so A.I. can answer properly\n")
+calibration_data2=input("\ninput some more calibration data, so A.I. can answer very properly\n")
 
 #main cycle
 while True:
-    print(text_to_ai(user_input, user_settings_role, calibration_data))
+    print(text_to_ai(user_input, user_settings_role, calibration_data,calibration_data2))
     if int(user_settings1)==1:
         print("\n\n*****Listening your voice*****\n\n")
     else:
