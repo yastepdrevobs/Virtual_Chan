@@ -3,7 +3,7 @@ import openai
 import speech_recognition as sr
 
 #variables and keys
-openai.api_key = ""             #insert your API here
+openai.api_key = "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"             #insert your API here
 user_input=""
 user_settings_role=""
 
@@ -35,7 +35,7 @@ def text_to_ai(user_input,system_input,big_fucking_data):
         {"role":"user","content":str(user_input)},
         {"role":"assistant","content":str(big_fucking_data)}]
   )
-  response_text = response["choices"][0]["message"]
+  response_text = response["choices"][0]["message"]["content"]
   return response_text
 
 #some UI starts here
