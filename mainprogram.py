@@ -3,11 +3,15 @@ import openai
 import speech_recognition as sr
 
 #variables and keys
-openai.api_key = "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"             #insert your API here
+openai.api_key = "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"             #insert your API here
 user_input=""
-user_settings_role=""
 speech_language="en-EN"
-user_settings_role=""
+
+#prompt
+file_path = "prompt.txt"
+with open(file_path,"r") as file:
+    fucking_fuck = file.read()
+    user_settings_role = str(fucking_fuck)
 
 #voice recognition module
 def text_from_voice(speech_language):
@@ -29,16 +33,17 @@ def twitch_chat():
     #coming soon
 
 #openAI API module
-def text_to_ai(user_input,system_input):
-  response = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo",
-    messages=[
-        {"role":"system","content":str(system_input)},
-        {"role":"user","content":str(user_input)}
-    ]
-  )
-  response_text = response["choices"][0]["message"]["content"]
-  return response_text
+def text_to_ai(user_input, system_input, big_data):
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": str(system_input)},
+            {"role": "user", "content": str(user_input)},
+            {"role": "assistant", "content": str(big_data)}
+        ]
+    )
+    response_text = response["choices"][0]["message"]["content"]
+    return response_text
 
 #some UI starts here
 user_settings1=input("choose way of interacting:\n 1: audio mode\n 2: text mode\n 3: twitch mode\n")
@@ -60,10 +65,11 @@ else:
 #more UI
 if input("\nDo you want use my prompt?y/n\n")=="n":
     user_settings_role = input("\nPrint the role of A.I\n")
+calibration_data=input("\ninput some calibration data, so A.I. can answer properly\n")
 
 #main cycle
 while True:
-    print(text_to_ai(user_input, user_settings_role))
+    print(text_to_ai(user_input, user_settings_role, calibration_data))
     if int(user_settings1)==1:
         print("\n\n*****Listening your voice*****\n\n")
     else:
