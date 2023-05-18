@@ -6,15 +6,16 @@ import speech_recognition as sr
 openai.api_key = "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"             #insert your API here
 user_input=""
 user_settings_role=""
+speech_language="en-EN"
 
 #voice recognition module
-def text_from_voice():
+def text_from_voice(speech_language):
   speech_recognition = sr.Recognizer()  
   with sr.Microphone() as sourse:                                              
     audio = speech_recognition.listen(sourse,phrase_time_limit=6)
     audio_user_input = ""  
     try:
-        audio_user_input = speech_recognition.recognize_google(audio)
+        audio_user_input = speech_recognition.recognize_google(audio, language=speech_language)
         print("\n*****audio recognition*****\n"+audio_user_input+"\n***audio recognition ended***\n")
     except Exception as e:
         print("Exeption: "+ str(e))
@@ -41,10 +42,13 @@ def text_to_ai(user_input,system_input,big_fucking_data):
 #some UI starts here
 user_settings1=input("choose way of interacting:\n 1: audio mode\n 2: text mode\n 3: twitch mode\n")
 
-#input tipe change
+#input type change
 if int(user_settings1)==1:
+   speech_language_settings = input("\nSelect language\n1-English\n2-fucking russian\n")
+   if speech_language_settings=="2":
+       speech_language="ru-RU"
    print("\n*****Listening your voice*****\n")
-   user_input = text_from_voice()
+   user_input = text_from_voice(speech_language)
 elif int(user_settings1)==2:
    user_input = input("Input qestion\n")
 elif int(user_settings1)==3:
