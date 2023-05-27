@@ -3,15 +3,14 @@ import openai
 import speech_recognition as sr
 
 #variables and keys
-openai.api_key = "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"             #insert your API here
+openai.api_key = "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"             #insert your API here
 user_input=""
 speech_language="en-EN"
 
 #prompt
 file_path = "prompt.txt"
 with open(file_path,"r") as file:
-    fucking_fuck = file.read()
-    user_settings_role = str(fucking_fuck)
+    user_settings_role = str(file.read())
 
 #voice recognition module
 def text_from_voice(speech_language):
@@ -75,7 +74,7 @@ while True:
     else:
         print("voice unavaileble")
     if int(user_settings1)==1:
-       user_input = text_from_voice()
+       user_input = text_from_voice(speech_language)
     elif int(user_settings1)==2:
        user_input = input("Input qestion\n")
     elif int(user_settings1)==3:
